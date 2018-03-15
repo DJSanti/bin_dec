@@ -31,19 +31,16 @@ def is_eight(str, len_eight=8):
 
 # mod functions. They determine which function shoudl be used to decode the binary string.
 if (characters % 7 == 0 and characters % 8 == 0):
-        print "The number of characters ({}) in this file is a number divisible by 7 and 8.".format(characters)
         print "Decoded message attempt: " + is_eight(charac)
         print "Decoded message attempt: " + is_seven(charac)
 
 elif (characters % 8 == 0):
-        print "The number of characters in this file ({}) is a number divisible by 8.".format(characters)
         print "Decoded message: " + is_eight(charac)
         
 elif (characters % 7 == 0):
-        print "The number of characters in this file ({}) is a number divisible by 7.".format(characters)
         print "Decoded message: " + is_seven(charac)
 else:
-        print "The number of characters ({}) isn't a number divisible by either 7 or 8.".format(characters)
+        break
 
 
         
