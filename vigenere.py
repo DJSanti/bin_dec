@@ -33,7 +33,7 @@ def encrypt(text, key):
 # decryption function	
 def decrypt(text, key):
 	plaintext = ''
-	key_len= len(key)
+	key_len = len(key)
 	key_int = [ord(i) for i in key]
 	text_int = [ord(i) for i in text]
 	for i in text:
@@ -45,22 +45,22 @@ def decrypt(text, key):
 
 # Main function - executed once program is started	
 def Main():
-	# main function
 	while True:
-		# error handling to make sure whole argument is typed in
+		# error handling: catches if key is not typed in.
 		if (len(sys.argv) == 3):
-			text = sys.stdin.readline()
+			text = sys.stdin.readline() # need error handling if there's no input
 			for i in range(2, len(sys.argv)):
 				if not text:
 					exit()
 				if (sys.argv[1] == "-e"):
 					key = sys.argv[i]
-					print encrypt(text, key)
+					print encrypt(text, key).rstrip()
 				elif (sys.argv[1] == "-d"):
 					key = sys.argv[i]
-					print decrypt(text, key)
+					print decrypt(text, key).rstrip()
 				else:
 					print "error: unknown option"
+					exit()
 		else:
 			print "Error. Try again."
 			exit()
