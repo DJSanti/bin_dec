@@ -20,7 +20,7 @@ alphabet = ascii_uppercase + ascii_lowercase
 # encryption function
 def encrypt(text, key):
 	ciphertext = ''
-	key_len= len(key)
+	key_len = len(key)
 	key_int = [ord(x) for x in key]
 	text_int = [ord(x) for x in text]
 	for i in text:
@@ -48,16 +48,11 @@ def Main():
 	# main function
 	while True:
 		# error handling to make sure whole argument is typed in
-		if (len(sys.argv) < 2):
-			print "Error: Too short an argument. Please write your command as follows: python Vigenere.py [-d or -e] [key]"
-			exit()
-		else:
+		if (len(sys.argv) == 3):
 			text = sys.stdin.readline()
 			for i in range(2, len(sys.argv)):
-				
 				if not text:
 					exit()
-			
 				if (sys.argv[1] == "-e"):
 					key = sys.argv[i]
 					print encrypt(text, key)
@@ -66,7 +61,8 @@ def Main():
 					print decrypt(text, key)
 				else:
 					print "error: unknown option"
+		else:
+			print "Error. Try again."
+			exit()
 		
 Main()
-	
-	
