@@ -9,11 +9,10 @@
 import sys
 from string import ascii_uppercase, ascii_lowercase
 
-# creates list of letters
+# creates list of letters; needed to check for non-alpha characters
 alphabet = ascii_uppercase + ascii_lowercase 
 
 # testing out some of the math here...
-# i = 7
 # print ord(alphabet[(i + 52) % 52])
 # print chr(ord(alphabet[(i + 52) % 52]))
 
@@ -21,26 +20,25 @@ alphabet = ascii_uppercase + ascii_lowercase
 def encrypt(text, key):
 	ciphertext = ''
 	key_len = len(key)
-	key_int = [ord(x) for x in key]
-	text_int = [ord(x) for x in text]
+	#text_int = [ord(x) for x in text]
 	for i in text:
 		if not i in alphabet:
 			ciphertext += i
 		elif i.isalpha():
-			ciphertext += 'e'
+			ciphertext += chr(ord(i))
 	return ciphertext
 
 # decryption function	
 def decrypt(text, key):
 	plaintext = ''
 	key_len = len(key)
-	key_int = [ord(i) for i in key]
-	text_int = [ord(i) for i in text]
+	key_int = [ord(x) for x in key]
+	#text_int = [ord(x) for x in text]
 	for i in text:
 		if not i in alphabet:
 			plaintext += i
 		elif i.isalpha():
-			plaintext += 'd'
+			plaintext += chr(ord(i))
 	return plaintext
 
 # Main function - executed once program is started	
@@ -65,4 +63,4 @@ def Main():
 			print "Error. Try again."
 			exit()
 		
-Main()
+print encrypt("hello!", "mykey").rstrip()
