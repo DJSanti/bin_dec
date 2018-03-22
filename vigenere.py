@@ -8,7 +8,7 @@
 #imports ascii letters and sys commands
 import sys
 
-# encryption function
+# encryption function - works
 def encrypt(text, key):
 	ciphertext = ""
 	on_letter = 0
@@ -45,7 +45,7 @@ def encrypt(text, key):
 		
 	return ciphertext
 
-# decryption function	
+# decryption function - works	
 def decrypt(text, key):
 	plaintext = ""
 	on_letter = 0
@@ -88,7 +88,7 @@ def Main():
 		if (len(sys.argv) == 3):
 			text = sys.stdin.readline() 
 			for i in range(2, len(sys.argv)):
-				if text == "\n": # catches if only enter was hit; keeps coming up on last test
+				if text == "\n": # catches if only enter key was hit.
 					print "Error: no input entered. Exiting now..."
 					exit()
 				if (sys.argv[1] == "-e"):
