@@ -1,6 +1,6 @@
 ###############################################################################
 # Name: Samantha Santiago
-# Date: 03/21/2018
+# Date: 03/19/2018
 # Objective: Mathematically implement a Vigenere cipher to encrypt and decrypt
 # messages
 ###############################################################################
@@ -88,20 +88,20 @@ def Main():
 		if (len(sys.argv) == 3):
 			text = sys.stdin.readline() 
 			for i in range(2, len(sys.argv)):
-				if text == "\n": # catches if only enter was hit
-					print "Error: no input"
+				if text == "\n": # catches if only enter was hit; keeps coming up on last test
+					print "Error: no input entered. Exiting now..."
 					exit()
 				if (sys.argv[1] == "-e"):
-					key = ''.join(sys.argv[i].replace(" ", ""))
+					key = ''.join(sys.argv[i].lower().replace(" ", ""))
 					print encrypt(text, key).rstrip()
 				elif (sys.argv[1] == "-d"):
-					key = ''.join(sys.argv[i].replace(" ", ""))
+					key = ''.join(sys.argv[i].lower().replace(" ", ""))
 					print decrypt(text, key).rstrip()
 				else:
-					print "error: unknown option" # works; thank GOD
+					print "Error: unknown option. Exiting now..." # works; thank GOD
 					exit()
 		else:
-			print "Error. Try again." # general error handling works
+			print "Error. Try again by typing your command as follows: python vigenere.py [-d/-e] [key]" # general error handling works
 			exit()
 		
 Main()
